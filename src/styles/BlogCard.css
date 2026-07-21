@@ -14,3 +14,7 @@
   color: #2563eb;
   font-weight: 600;
 }
+.blog-link {
+  text-decoration: none;
+  color: inherit;
+}
