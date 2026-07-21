@@ -1,0 +1,16 @@
+.blog-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  background-color: white;
+}
+
+.blog-card h2 {
+  margin-bottom: 10px;
+}
+
+.blog-card span {
+  color: #2563eb;
+  font-weight: 600;
+}
