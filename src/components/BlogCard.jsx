@@ -3,8 +3,8 @@ import "../styles/BlogCard.css";
 
 function BlogCard({ post, deletePost }) {
   return (
-    <Link to={`/blog/${post.id}`} className="blog-link">
-      <div className="blog-card">
+    <div className="blog-card">
+      <Link to={`/blog/${post.id}`} className="blog-link">
         <h2>{post.title}</h2>
 
         <p>{post.description}</p>
@@ -12,16 +12,14 @@ function BlogCard({ post, deletePost }) {
         <span>{post.category}</span>
 
         <p>By {post.author}</p>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            deletePost(post.id);
-          }}
-        >
-          Delete
-        </button>
+      </Link>
+
+      <div className="card-actions">
+        <Link to={`/edit-post/${post.id}`}>Edit</Link>
+
+        <button onClick={() => deletePost(post.id)}>Delete</button>
       </div>
-    </Link>
+    </div>
   );
 }
 

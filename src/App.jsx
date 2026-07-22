@@ -11,6 +11,7 @@ import BlogDetails from "./pages/BlogDetails";
 import CreatePost from "./pages/CreatePost";
 import Articles from "./pages/Articles";
 import Bookmarks from "./pages/Bookmarks";
+import EditPost from "./pages/EditPost";
 
 import postsData from "./data/posts";
 
@@ -52,7 +53,10 @@ function App() {
         />
 
         <Route path="/articles" element={<Articles />} />
-
+        <Route
+          path="/edit-post/:id"
+          element={<EditPost posts={posts} setPosts={setPosts} />}
+        />
         <Route path="/bookmarks" element={<Bookmarks />} />
       </Routes>
     </>
