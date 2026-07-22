@@ -24,13 +24,19 @@ function App() {
   useEffect(() => {
     localStorage.setItem("posts", JSON.stringify(posts));
   }, [posts]);
+  const deletePost = (id) => {
+    setPosts((previousPosts) => previousPosts.filter((post) => post.id !== id));
+  };
 
   return (
     <>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home posts={posts} />} />
+        <Route
+          path="/"
+          element={<Home posts={posts} deletePost={deletePost} />}
+        />
 
         <Route path="/blogs" element={<Blogs />} />
 

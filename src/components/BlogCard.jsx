@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/BlogCard.css";
 
-function BlogCard({ post }) {
+function BlogCard({ post, deletePost }) {
   return (
     <Link to={`/blog/${post.id}`} className="blog-link">
       <div className="blog-card">
@@ -12,6 +12,14 @@ function BlogCard({ post }) {
         <span>{post.category}</span>
 
         <p>By {post.author}</p>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            deletePost(post.id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     </Link>
   );
