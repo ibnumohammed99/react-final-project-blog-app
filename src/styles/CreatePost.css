@@ -46,7 +46,7 @@
   resize: vertical;
 }
 
-.create-post-form button {
+.create-post-button {
   background-color: #1e293b;
   color: white;
   border: none;
@@ -58,6 +58,34 @@
   transition: background-color 0.3s ease;
 }
 
-.create-post-form button:hover {
+.create-post-button:hover {
   background-color: #38bdf8;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
