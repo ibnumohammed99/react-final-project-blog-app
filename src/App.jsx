@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 
@@ -15,7 +15,15 @@ import Bookmarks from "./pages/Bookmarks";
 import postsData from "./data/posts";
 
 function App() {
-  const [posts, setPosts] = useState(postsData);
+  const [posts, setPosts] = useState(() => {
+    const savedPosts = localStorage.getItem("posts");
+
+    return savedPosts ? JSON.parse(savedPosts) : postsData;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("posts", JSON.stringify(posts));
+  }, [posts]);
 
   return (
     <>
