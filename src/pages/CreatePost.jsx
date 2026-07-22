@@ -10,6 +10,11 @@ function CreatePost({ setPosts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!title || !author || !category || !description) {
+      alert("Please fill all fields before creating a post");
+      return;
+    }
+
     const newPost = {
       id: Date.now(),
       title,
@@ -20,7 +25,6 @@ function CreatePost({ setPosts }) {
 
     setPosts((previousPosts) => [...previousPosts, newPost]);
 
-    // Clear the form after submission
     setTitle("");
     setAuthor("");
     setCategory("");
