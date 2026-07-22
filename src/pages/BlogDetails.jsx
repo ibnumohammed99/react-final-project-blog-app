@@ -1,10 +1,17 @@
 import { useParams } from "react-router-dom";
-import posts from "../data/posts";
 
-function BlogDetails() {
+function BlogDetails({ posts }) {
   const { id } = useParams();
 
   const post = posts.find((post) => post.id === Number(id));
+
+  if (!post) {
+    return (
+      <div>
+        <h1>Post not found</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
