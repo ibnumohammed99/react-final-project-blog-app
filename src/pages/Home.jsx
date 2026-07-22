@@ -1,8 +1,7 @@
-import posts from "../data/posts";
 import BlogCard from "../components/BlogCard";
 import "../styles/Home.css";
 
-function Home() {
+function Home({ posts }) {
   return (
     <div>
       <h1>Welcome to MyBlog</h1>

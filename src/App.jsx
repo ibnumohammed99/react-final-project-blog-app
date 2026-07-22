@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
@@ -10,19 +12,33 @@ import CreatePost from "./pages/CreatePost";
 import Articles from "./pages/Articles";
 import Bookmarks from "./pages/Bookmarks";
 
+import postsData from "./data/posts";
+
 function App() {
+  const [posts, setPosts] = useState(postsData);
+
   return (
     <>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home posts={posts} />} />
+
         <Route path="/blogs" element={<Blogs />} />
+
         <Route path="/about" element={<About />} />
+
         <Route path="/login" element={<Login />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/create-post" element={<CreatePost />} />
+
+        <Route path="/blog/:id" element={<BlogDetails posts={posts} />} />
+
+        <Route
+          path="/create-post"
+          element={<CreatePost setPosts={setPosts} />}
+        />
+
         <Route path="/articles" element={<Articles />} />
+
         <Route path="/bookmarks" element={<Bookmarks />} />
       </Routes>
     </>

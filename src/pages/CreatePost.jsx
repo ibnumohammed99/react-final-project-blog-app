@@ -1,6 +1,7 @@
 import { useState } from "react";
+import "../styles/CreatePost.css";
 
-function CreatePost() {
+function CreatePost({ setPosts }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState("");
@@ -17,14 +18,20 @@ function CreatePost() {
       description,
     };
 
-    console.log(newPost);
+    setPosts((previousPosts) => [...previousPosts, newPost]);
+
+    // Clear the form after submission
+    setTitle("");
+    setAuthor("");
+    setCategory("");
+    setDescription("");
   };
 
   return (
-    <div>
+    <div className="create-post-container">
       <h1>Create New Post</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className="create-post-form" onSubmit={handleSubmit}>
         <div>
           <label>Title</label>
           <input
