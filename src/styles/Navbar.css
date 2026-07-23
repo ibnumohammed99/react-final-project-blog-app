@@ -1,61 +1,174 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #1e293b;
+
+  padding: 18px 50px;
+
+  background-color: var(--surface-color);
+
+  color: var(--text-color);
+
+  border-bottom: 1px solid var(--border-color);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
+/* Logo */
+
 .logo {
-  color: white;
+  margin: 0;
+
+  font-size: 1.8rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  color: var(--primary-color);
+
+  cursor: pointer;
 }
+
+/* Navigation links */
 
 .nav-links {
   display: flex;
+
+  align-items: center;
+
   list-style: none;
-  gap: 32px;
+
+  gap: 30px;
+
   padding: 0;
+
   margin: 0;
 }
 
 .nav-links li {
-  cursor: pointer;
   font-weight: 500;
 }
 
 .nav-links a {
-  color: white;
+  position: relative;
+
+  color: var(--text-color);
+
   text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+/* Animated underline */
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0;
+
+  height: 2px;
+
+  background-color: var(--primary-color);
+
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #38bdf8;
+  color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Theme Button */
+
+.theme-button {
+  width: 44px;
+
+  height: 44px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 21px;
+
+  background-color: var(--primary-color);
+
+  color: white;
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.theme-button:hover {
+  transform: rotate(20deg) scale(1.1);
+
+  background-color: var(--primary-hover);
 }
 
 /* Tablet */
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
+
     padding: 20px;
+
     gap: 20px;
   }
 
   .nav-links {
     flex-wrap: wrap;
+
     justify-content: center;
+
     gap: 18px;
   }
 }
 
 /* Phone */
+
 @media (max-width: 480px) {
   .logo {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .nav-links {
     width: 100%;
+
     justify-content: center;
+
     gap: 15px;
   }
 

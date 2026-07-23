@@ -1,45 +1,69 @@
 .create-post-container {
   max-width: 700px;
+
   margin: 40px auto;
+
   padding: 30px;
-  background-color: #ffffff;
+
+  background-color: var(--surface-color);
+
+  color: var(--text-color);
+
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  box-shadow: var(--shadow);
 }
 
 .create-post-container h1 {
   text-align: center;
+
   margin-bottom: 25px;
-  color: #1e293b;
+
+  color: var(--text-color);
 }
 
 .create-post-form {
   display: flex;
+
   flex-direction: column;
+
   gap: 20px;
 }
 
 .create-post-form label {
   display: block;
+
   margin-bottom: 8px;
+
   font-weight: 600;
-  color: #334155;
+
+  color: var(--text-color);
 }
 
 .create-post-form input,
 .create-post-form textarea {
   width: 100%;
+
   padding: 12px;
-  border: 1px solid #cbd5e1;
+
+  border: 1px solid var(--border-color);
+
+  background-color: var(--bg-color);
+
+  color: var(--text-color);
+
   border-radius: 8px;
+
   font-size: 16px;
+
   box-sizing: border-box;
 }
 
 .create-post-form input:focus,
 .create-post-form textarea:focus {
   outline: none;
-  border-color: #38bdf8;
+
+  border-color: var(--primary-color);
 }
 
 .create-post-form textarea {
@@ -47,32 +71,48 @@
 }
 
 .create-post-button {
-  background-color: #1e293b;
+  background-color: var(--primary-color);
+
   color: white;
+
   border: none;
+
   padding: 14px;
+
   border-radius: 8px;
+
   font-size: 16px;
+
   font-weight: 600;
+
   cursor: pointer;
+
   transition: background-color 0.3s ease;
 }
 
 .create-post-button:hover {
-  background-color: #38bdf8;
+  background-color: var(--primary-hover);
 }
+
 .form-group {
   display: flex;
+
   flex-direction: column;
+
   gap: 8px;
 }
 
 .error-message {
   background-color: #fee2e2;
+
   color: #b91c1c;
+
   padding: 12px 16px;
+
   border-radius: 8px;
+
   margin-bottom: 20px;
+
   font-weight: 500;
 
   animation: slideDown 0.3s ease;
@@ -81,11 +121,13 @@
 @keyframes slideDown {
   from {
     opacity: 0;
+
     transform: translateY(-10px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }

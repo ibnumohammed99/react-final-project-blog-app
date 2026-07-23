@@ -17,6 +17,8 @@ import EditPost from "./pages/EditPost";
 import postsData from "./data/posts";
 import useFetchPosts from "./hooks/useFetchPosts";
 
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
+
 function App() {
   const [posts, setPosts] = useState(() => {
     const savedPosts = localStorage.getItem("posts");
@@ -25,6 +27,8 @@ function App() {
   });
 
   const { apiPosts, loading, error } = useFetchPosts();
+
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     localStorage.setItem("posts", JSON.stringify(posts));
@@ -36,12 +40,18 @@ function App() {
         const existingIds = previousPosts.map((post) => post.id);
 
         const newPosts = apiPosts
+
           .filter((post) => !existingIds.includes(post.id))
+
           .map((post) => ({
             id: post.id,
+
             title: post.title,
+
             description: post.body,
+
             author: `User ${post.userId}`,
+
             category: post.tags?.[0] || "General",
           }));
 
@@ -55,7 +65,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className={darkMode ? "dark" : ""}>
       <Navbar />
 
       {loading && <p>Loading posts...</p>}
@@ -95,8 +105,16 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </div>
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  );
+}
+
+export default AppWrapper;

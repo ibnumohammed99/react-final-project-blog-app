@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+
 import "../styles/Navbar.css";
 
 function Navbar() {
+  const { darkMode, toggleTheme } = useTheme();
+
   return (
     <nav className="navbar">
-      <h2 className="logo">MyBlog</h2>
+      <h2 className="logo">BlogSphere</h2>
 
       <ul className="nav-links">
         <li>
@@ -35,6 +39,10 @@ function Navbar() {
           <Link to="/login">Login</Link>
         </li>
       </ul>
+
+      <button className="theme-button" onClick={toggleTheme}>
+        {darkMode ? "☀️" : "🌙"}
+      </button>
     </nav>
   );
 }

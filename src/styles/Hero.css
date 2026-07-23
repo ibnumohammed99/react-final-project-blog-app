@@ -9,9 +9,11 @@
 
   padding: 60px 20px;
 
-  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  background: linear-gradient(135deg, var(--surface-color), var(--bg-color));
 
   overflow: hidden;
+
+  transition: background 0.3s ease;
 }
 
 .hero-content {
@@ -27,7 +29,7 @@
 
   letter-spacing: -2px;
 
-  color: #0f172a;
+  color: var(--text-color);
 
   margin-bottom: 20px;
 }
@@ -37,7 +39,7 @@
 
   line-height: 1.7;
 
-  color: #475569;
+  color: var(--secondary-text);
 
   margin-bottom: 35px;
 }
@@ -66,25 +68,25 @@
 }
 
 .primary-btn {
-  background-color: #2563eb;
+  background-color: var(--primary-color);
 
   color: white;
 }
 
 .primary-btn:hover {
-  background-color: #1d4ed8;
+  background-color: var(--primary-hover);
 
   transform: translateY(-3px);
 }
 
 .secondary-btn {
-  border: 2px solid #2563eb;
+  border: 2px solid var(--primary-color);
 
-  color: #2563eb;
+  color: var(--primary-color);
 }
 
 .secondary-btn:hover {
-  background-color: #2563eb;
+  background-color: var(--primary-color);
 
   color: white;
 }

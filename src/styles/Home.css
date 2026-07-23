@@ -1,9 +1,15 @@
 .blogs-section {
   padding: 60px 40px;
 
-  background-color: #f8fafc;
+  background-color: var(--bg-color);
+
+  color: var(--text-color);
 
   border-radius: 30px 30px 0 0;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .blogs-section h2 {
@@ -12,6 +18,8 @@
   font-size: 2rem;
 
   margin-bottom: 20px;
+
+  color: var(--text-color);
 }
 
 /* Search and Filter */
@@ -34,11 +42,20 @@
 
   border-radius: 10px;
 
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-color);
+
+  background-color: var(--surface-color);
+
+  color: var(--text-color);
 
   font-size: 1rem;
 
   outline: none;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .filters input {
@@ -47,7 +64,7 @@
 
 .filters input:focus,
 .filters select:focus {
-  border-color: #2563eb;
+  border-color: var(--primary-color);
 }
 
 /* Blog cards */
