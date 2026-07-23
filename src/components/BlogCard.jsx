@@ -42,12 +42,21 @@ function BlogCard({ post, deletePost }) {
 
   return (
     <div className="blog-card">
+      {/* Bookmark moved to top right */}
+      <button
+        className="bookmark-button"
+        onClick={handleBookmark}
+        aria-label="bookmark"
+      >
+        {isBookmarked ? "🔖" : "📑"}
+      </button>
+
       <Link to={`/blog/${post.id}`} className="blog-link">
         <h2>{post.title}</h2>
 
         <p>{post.description}</p>
 
-        <span>{post.category}</span>
+        <span className="category-badge">{post.category}</span>
       </Link>
 
       <div className="card-actions">
@@ -58,10 +67,6 @@ function BlogCard({ post, deletePost }) {
         <Link to={`/edit-post/${post.id}`}>Edit</Link>
 
         <button onClick={() => deletePost(post.id)}>Delete</button>
-
-        <button onClick={handleBookmark}>
-          {isBookmarked ? "Remove Bookmark" : "Bookmark"}
-        </button>
       </div>
     </div>
   );
