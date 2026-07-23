@@ -14,6 +14,7 @@ import Bookmarks from "./pages/Bookmarks";
 import EditPost from "./pages/EditPost";
 
 import postsData from "./data/posts";
+import useFetchPosts from "./hooks/useFetchPosts";
 
 function App() {
   const [posts, setPosts] = useState(() => {
@@ -22,9 +23,32 @@ function App() {
     return savedPosts ? JSON.parse(savedPosts) : postsData;
   });
 
+  const { apiPosts, loading, error } = useFetchPosts();
+
   useEffect(() => {
     localStorage.setItem("posts", JSON.stringify(posts));
   }, [posts]);
+
+  useEffect(() => {
+    if (apiPosts.length > 0) {
+      setPosts((previousPosts) => {
+        const existingIds = previousPosts.map((post) => post.id);
+
+        const newPosts = apiPosts
+          .filter((post) => !existingIds.includes(post.id))
+          .map((post) => ({
+            id: post.id,
+            title: post.title,
+            description: post.body,
+            author: `User ${post.userId}`,
+            category: post.tags?.[0] || "General",
+          }));
+
+        return [...previousPosts, ...newPosts];
+      });
+    }
+  }, [apiPosts]);
+
   const deletePost = (id) => {
     setPosts((previousPosts) => previousPosts.filter((post) => post.id !== id));
   };
@@ -33,13 +57,20 @@ function App() {
     <>
       <Navbar />
 
+      {loading && <p>Loading posts...</p>}
+
+      {error && <p>{error}</p>}
+
       <Routes>
         <Route
           path="/"
           element={<Home posts={posts} deletePost={deletePost} />}
         />
 
-        <Route path="/blogs" element={<Blogs />} />
+        <Route
+          path="/blogs"
+          element={<Blogs posts={posts} deletePost={deletePost} />}
+        />
 
         <Route path="/about" element={<About />} />
 
@@ -53,10 +84,12 @@ function App() {
         />
 
         <Route path="/articles" element={<Articles />} />
+
         <Route
           path="/edit-post/:id"
           element={<EditPost posts={posts} setPosts={setPosts} />}
         />
+
         <Route path="/bookmarks" element={<Bookmarks />} />
       </Routes>
     </>

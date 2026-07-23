@@ -1,28 +1,42 @@
 import { useAtom } from "jotai";
 import { bookmarkAtom } from "../atoms/bookmarkAtom";
-import BlogCard from "../components/BlogCard";
+import "../styles/Bookmarks.css";
 
 function Bookmarks() {
   const [bookmarks, setBookmarks] = useAtom(bookmarkAtom);
 
   const removeBookmark = (id) => {
-    setBookmarks(bookmarks.filter((post) => post.id !== id));
+    const updatedBookmarks = bookmarks.filter((post) => post.id !== id);
+
+    setBookmarks(updatedBookmarks);
+
+    localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
   };
 
   return (
-    <div>
-      <h1>Bookmarks</h1>
+    <div className="bookmarks-container">
+      <h1>Your Bookmarks</h1>
 
       {bookmarks.length === 0 ? (
-        <p>No bookmarks yet.</p>
+        <p className="empty-bookmarks">No bookmarks yet 🔖</p>
       ) : (
-        bookmarks.map((post) => (
-          <BlogCard
-            key={post.id}
-            post={post}
-            deletePost={() => removeBookmark(post.id)}
-          />
-        ))
+        <div className="bookmark-grid">
+          {bookmarks.map((post) => (
+            <div className="bookmark-card" key={post.id}>
+              <h2>{post.title}</h2>
+
+              <p>{post.description}</p>
+
+              <span>{post.category}</span>
+
+              <p>By {post.author}</p>
+
+              <button onClick={() => removeBookmark(post.id)}>
+                Remove Bookmark
+              </button>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
