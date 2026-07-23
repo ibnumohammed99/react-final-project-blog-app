@@ -103,11 +103,11 @@ This project was built step-by-step while learning React concepts and transformi
 blog-app/
 │
 ├── screenshots/
-│   ├── home.png
-│   ├── dark-mode.png
-│   ├── details.png
+│   ├── home-light.png
+│   ├── home-dark.png
+│   ├── blog-feed-light.png
 │   ├── create-post.png
-│   └── bookmarks.png
+│   └── blog-feed.png
 │
 ├── src/
 │   │
