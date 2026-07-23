@@ -58,8 +58,8 @@ Context API
 Other
 DummyJSON REST API
 Local Storage
-📂 Project Structure
 blog-app/
+📂 Project Structure
 ├── screenshots/
 │   ├── home.png
 │   ├── dark-mode.png
