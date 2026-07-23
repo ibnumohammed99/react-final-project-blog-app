@@ -32,14 +32,14 @@
 
 .card-actions {
   margin-top: auto;
-
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-
   padding-top: 20px;
   border-top: 1px solid #eee;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .card-actions p {
@@ -64,4 +64,23 @@
 
 .card-actions button:hover {
   opacity: 0.9;
+}
+@media (max-width: 480px) {
+  .card-actions {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .card-actions p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .card-actions a,
+  .card-actions button {
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+  }
 }
