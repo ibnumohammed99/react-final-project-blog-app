@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/CreatePost.css";
+import PostForm from "../components/PostForm";
 
 function CreatePost({ setPosts }) {
   const [error, setError] = useState("");
@@ -36,60 +37,33 @@ function CreatePost({ setPosts }) {
   return (
     <div className="create-post-container">
       <h1>Create New Post</h1>
+
       {error && <div className="error-message">⚠️ {error}</div>}
-      <form className="create-post-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-              setError("");
-            }}
-          />
-        </div>
 
-        <div className="form-group">
-          <label>Author</label>
-          <input
-            type="text"
-            value={author}
-            onChange={(e) => {
-              setAuthor(e.target.value);
-              setError("");
-            }}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Category</label>
-          <input
-            type="text"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-              setError("");
-            }}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Description</label>
-          <textarea
-            rows="5"
-            value={description}
-            onChange={(e) => {
-              setDescription(e.target.value);
-              setError("");
-            }}
-          />
-        </div>
-
-        <button className="create-post-button" type="submit">
-          Create Post
-        </button>
-      </form>
+      <PostForm
+        title={title}
+        setTitle={(value) => {
+          setTitle(value);
+          setError("");
+        }}
+        author={author}
+        setAuthor={(value) => {
+          setAuthor(value);
+          setError("");
+        }}
+        category={category}
+        setCategory={(value) => {
+          setCategory(value);
+          setError("");
+        }}
+        description={description}
+        setDescription={(value) => {
+          setDescription(value);
+          setError("");
+        }}
+        handleSubmit={handleSubmit}
+        buttonText="Create Post"
+      />
     </div>
   );
 }
