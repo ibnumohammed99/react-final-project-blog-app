@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
@@ -92,6 +93,8 @@ function App() {
 
         <Route path="/bookmarks" element={<Bookmarks />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }
