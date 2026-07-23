@@ -52,25 +52,27 @@ This project was built step-by-step while learning React concepts and transformi
 
 # 📸 Screenshots
 
-## 🏠 Home Page
+# 📸 Screenshots
 
-![Home Page](screenshots/home.png)
+## 🏠 Home Page (Light Mode)
 
-## 🌙 Dark Mode
+![Home Light](screenshots/home-light.png)
 
-![Dark Mode](screenshots/dark-mode.png)
+## 🌙 Home Page (Dark Mode)
 
-## 📖 Blog Details
-
-![Blog Details](screenshots/details.png)
+![Home Dark](screenshots/home-dark.png)
 
 ## ✍️ Create Post
 
 ![Create Post](screenshots/create-post.png)
 
-## 🔖 Bookmarks
+## 📚 Blog Feed
 
-![Bookmarks](screenshots/bookmarks.png)
+![Blog Feed](screenshots/blog-feed.png)
+
+## 📚 Blog Feed (Light Mode)
+
+![Blog Feed Light](screenshots/blog-feed-light.png)
 
 ---
 

@@ -1,5 +1,5 @@
 .hero {
-  min-height: 70vh;
+  min-height: 55vh;
 
   display: flex;
   align-items: center;
@@ -7,7 +7,7 @@
 
   text-align: center;
 
-  padding: 60px 20px;
+  padding: 40px 20px;
 
   background: linear-gradient(135deg, var(--surface-color), var(--bg-color));
 
