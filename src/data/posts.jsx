@@ -6,6 +6,7 @@ const posts = [
     category: "React",
     description:
       "A beginner-friendly guide to understanding React fundamentals.",
+    likes: 120,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const posts = [
     category: "JavaScript",
     description:
       "Learn modern JavaScript features used in frontend development.",
+    likes: 95,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const posts = [
     category: "Web Development",
     description:
       "A practical journey of creating a blog application with React.",
+    likes: 150,
   },
 ];
 

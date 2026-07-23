@@ -16,6 +16,18 @@ function Navbar() {
         </li>
 
         <li>
+          <Link to="/articles">Articles</Link>
+        </li>
+
+        <li>
+          <Link to="/create-post">Create Post</Link>
+        </li>
+
+        <li>
+          <Link to="/bookmarks">Bookmarks</Link>
+        </li>
+
+        <li>
           <Link to="/about">About</Link>
         </li>
 

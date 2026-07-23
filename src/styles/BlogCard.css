@@ -21,6 +21,10 @@
   margin-bottom: 10px;
 }
 
+.blog-card p {
+  line-height: 1.6;
+}
+
 .blog-card span {
   color: #2563eb;
   font-weight: 600;
@@ -32,9 +36,15 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
 
   padding-top: 20px;
   border-top: 1px solid #eee;
+}
+
+.card-actions p {
+  margin: 0;
+  font-weight: 600;
 }
 
 .card-actions a {
@@ -48,4 +58,10 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+}
+
+.card-actions button:hover {
+  opacity: 0.9;
 }
